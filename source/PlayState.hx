@@ -411,13 +411,6 @@ class PlayState extends MusicBeatState
 
 		FlxG.cameras.setDefaultDrawTarget(camGame, true);
 		CustomFadeTransition.nextCamera = camOther;
-		
-		#if android
-		addAndroidControls();
-		androidc.visible = true;
-		androidc.alpha = 0.000001;
-		
-		#end
 
 		persistentUpdate = true;
 		persistentDraw = true;
@@ -1222,7 +1215,11 @@ class PlayState extends MusicBeatState
 		grpNoteSplashes.cameras = [camHUD];
 		notes.cameras = [camHUD];
 
-		
+		#if android
+		addAndroidControls();
+		androidc.visible = true;
+		androidc.alpha = 0.000001;
+		#end
 
 		// if (SONG.song == 'South')
 		// FlxG.camera.alpha = 0.7;
@@ -2952,7 +2949,7 @@ class PlayState extends MusicBeatState
 			iconP1.swapOldIcon();
 		}*/
 		callOnLuas('onUpdate', [elapsed]);        
-		/*
+		
 		switch (curStage)
 		{
 			case 'tank':
@@ -3082,7 +3079,7 @@ class PlayState extends MusicBeatState
 					}
 				}
 		}
-		*/
+		
 		
 		
 			var balls = notesHitArray.length - 1;
@@ -5205,7 +5202,7 @@ class PlayState extends MusicBeatState
 		{
 			dad.dance();
 		}
-        /*
+        
 		switch (curStage)
 		{
 			case 'tank':
@@ -5260,7 +5257,7 @@ class PlayState extends MusicBeatState
 		{
 			lightningStrikeShit();
 		}
-		*/
+		
 		lastBeatHit = curBeat;
 
 		setOnLuas('curBeat', curBeat); //DAWGG?????
